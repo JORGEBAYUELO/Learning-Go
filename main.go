@@ -155,9 +155,34 @@ const PI float64 = 3.14
 // 	fmt.Println(slice)
 // }
 
+// func main() {
+// 	arr := [10]int{10, 20}
+// 	slice := arr[2:8]
+// 	fmt.Println(len(slice))
+// 	fmt.Println(cap(slice))
+// }
+
+//Maps//
+
+// func main() {
+// 	ascii_codes := make(map[string]int)
+// 	ascii_codes["A"] = 65
+// 	ascii_codes["F"] = 70
+// 	ascii_codes["K"] = 75
+// 	fmt.Println(ascii_codes)
+
+// 	ascii_codes = make(map[string]int)
+// 	ascii_codes["U"] = 85
+// 	fmt.Println(ascii_codes) 
+// }
+
 func main() {
-	arr := [10]int{10, 20}
-	slice := arr[2:8]
-	fmt.Println(len(slice))
-	fmt.Println(cap(slice))
+	ascii_codes := make(map[string]int, 10)
+	ascii_codes["A"] = 65
+	ascii_codes["F"] = 70
+	ascii_codes["K"] = 75
+	fmt.Println(len(ascii_codes))
+	ascii_codes = make(map[string]int)
+	ascii_codes["U"] = 85
+	fmt.Println(len(ascii_codes)) 
 }
