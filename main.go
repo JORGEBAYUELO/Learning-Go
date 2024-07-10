@@ -176,13 +176,94 @@ const PI float64 = 3.14
 // 	fmt.Println(ascii_codes) 
 // }
 
+// func main() {
+// 	ascii_codes := make(map[string]int, 10)
+// 	ascii_codes["A"] = 65
+// 	ascii_codes["F"] = 70
+// 	ascii_codes["K"] = 75
+// 	fmt.Println(len(ascii_codes))
+// 	ascii_codes = make(map[string]int)
+// 	ascii_codes["U"] = 85
+// 	fmt.Println(len(ascii_codes)) 
+// }
+
+//Functions//
+
+// func returnCube(n int) int {
+// 	return n*n*n
+// } 
+
+// func main() {
+// 	returnCube(5)
+// }
+
+//High Order Functions//
+
+// func addHundred(x int) int {
+// 	return x + 100
+// }
+
+// func partialSum(x ...int) func() {
+// 	sum := 0
+// 	for _, value := range x {
+// 		sum += value
+// 	}
+// 	return func() {
+// 		fmt.Println(addHundred(sum))
+// 	}
+// }
+// func main() {
+// 	partial := partialSum(1, 2, 3, 4, 5)
+// 	partial()
+// }
+
+// func addHundred(x int) int {
+// 	return x + 100
+// }
+
+// func partialSum(x ...int) func() int {
+// 	sum := 0
+// 	for _, value := range x {
+// 		sum += value
+// 	}
+// 	return func() int {
+// 		return addHundred(sum)
+// 	}
+// }
+// func main() {
+// 	partial := partialSum(1, 2, 3)
+// 	partial()
+// }
+
+// func addHundred(x int) int {
+// 	return x + 100
+// }
+
+// func partialSum(add100 func(x int) int, x ...int) int {
+// 	sum := 0
+// 	for _, value := range x {
+// 		sum += value
+// 	}
+// 	return add100(sum)
+// }
+// func main() {
+// 	partial := partialSum(addHundred,1, 2, 3)
+// 	fmt.Println(partial)
+// }
+
+func addHundred(x int) {
+	fmt.Println(x + 100)
+}
+
+func partialSum(add100 func(x int), x ...int) int {
+	sum := 0
+	for _, value := range x {
+		sum += value
+	}
+	add100(sum)
+	return 0
+}
 func main() {
-	ascii_codes := make(map[string]int, 10)
-	ascii_codes["A"] = 65
-	ascii_codes["F"] = 70
-	ascii_codes["K"] = 75
-	fmt.Println(len(ascii_codes))
-	ascii_codes = make(map[string]int)
-	ascii_codes["U"] = 85
-	fmt.Println(len(ascii_codes)) 
+	partial := partialSum(addHundred,1, 2, 3)
+	fmt.Println(partial)
 }
